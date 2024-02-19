@@ -14,7 +14,7 @@ export const TimerDetails = () => {
           Google's
         </a>
         . The screen changes color when the time is reached. This timer might be
-        nice when you don't want to make noise or have your hands busy.
+        nice when you don't want to make noise or if your hands are busy.
       </div>
     </details>
   );
