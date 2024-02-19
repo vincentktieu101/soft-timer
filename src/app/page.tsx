@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 
-import { Form } from "./components/Form";
+import { TimerForm } from "./components/TimerForm";
 
 export default function Home() {
   const [startTime, setStartTime] = useState<Date>();
@@ -26,7 +26,7 @@ export default function Home() {
   const startTimer = (timerCurrValue: number) => {
     setTimerEndValue(timerCurrValue);
     setStartTime(new Date());
-    setTimer(0);
+    setTimer(59);
   };
 
   const formattedTimer = [
@@ -48,19 +48,24 @@ export default function Home() {
 
   return (
     <div
-      className={`w-full h-full ${
-        isTimeUp && timerEndValue ? "bg-blue-300" : ""
+      className={`w-full h-full flex justify-center items-center flex-col ease-in-out transition transition-75 ${
+        isTimeUp && timerEndValue ? "bg-black text-white" : ""
       }`}
     >
       {startTime && endTime ? (
         <>
-          <div>Start - {startTime.toLocaleTimeString()}</div>
-          <div>End - {endTime.toLocaleTimeString()}</div>
-          <div>{formattedTimer.join(":")}</div>
-          <Form startTimer={startTimer} />
+          <div className="text-sm">
+            Start - {startTime.toLocaleTimeString()}
+          </div>
+          <div className="text-sm">End - {endTime.toLocaleTimeString()}</div>
+          <div className="text-8xl mb-4">{formattedTimer.join(":")}</div>
+          <TimerForm startTimer={startTimer} />
         </>
       ) : (
-        <Form startTimer={startTimer} />
+        <>
+          <div className="text-8xl mb-4 font-bold">Soft Timer</div>
+          <TimerForm startTimer={startTimer} />
+        </>
       )}
       {JSON.stringify(debugArray, null, 2)}
     </div>

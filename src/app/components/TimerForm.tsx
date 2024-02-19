@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-interface FormProps {
+interface TimerFormProps {
   startTimer: (timer: number) => void;
 }
 
-export const Form = ({ startTimer }: FormProps) => {
+export const TimerForm = ({ startTimer }: TimerFormProps) => {
   const [endTimerField, setEndTimerField] = useState("");
 
   const handleEnter = (e: React.MouseEvent<HTMLElement>) => {
@@ -19,13 +19,19 @@ export const Form = ({ startTimer }: FormProps) => {
   };
 
   return (
-    <form className="flex gap-4">
+    <form className="flex border-2 rounded-lg mb-4 overflow-hidden">
       <input
-        placeholder="Set timer in minutes:"
+        className="p-4 text-black rounded-l-lg"
+        placeholder="Set timer in minutes"
         value={endTimerField}
         onChange={(e) => setEndTimerField(e.target.value)}
       />
-      <button onClick={handleEnter}>Start</button>
+      <button
+        onClick={handleEnter}
+        className="bg-sky-500 hover:bg-sky-600 w-full h-full p-4 ease-in-out transition transition-75 text-white"
+      >
+        Set
+      </button>
     </form>
   );
 };
