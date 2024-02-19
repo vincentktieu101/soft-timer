@@ -1,3 +1,15 @@
+# Soft Timer
+A timer that won't set off a loud alarm like Google's. The screen changes color when the time is reached. This timer might be nice when you don't want to make noise or if your hands are busy.
+
+I wrote this project to solve this niche issue I was having. It was also nice practice going through the development process of starting up the app, getting the code working, tweaking the frontend flow and design of the app, and deploying it on netlify. I haven't done that much coding in my free time so it was nice getting that practice.
+
+From a coding perspective, it was annoying messing with the DateTime library in JavaScript functions and the timing functions. For the timing function, I used a `useEffect` function that loaded a `setInterval` function that would increment the timer's second. I tried updating the timer by the millisecond but that was way too slow. It would take like 10 seconds to increment the timer by a second.
+
+## Tech Stack
+NextJS, TypeScript / JavaScript, and Tailwind CSS
+
+# Deployment
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
