@@ -11,7 +11,7 @@ export const TimerDetails = () => {
           target="_blank"
           className="text-blue-400"
         >
-          Googl&apos;s
+          Google&apos;s
         </a>
         . The screen changes color when the time is reached. This timer might be
         nice when you don&apos;t want to make noise or if your hands are busy.
