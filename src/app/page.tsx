@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 
 import { TimerForm } from "./components/TimerForm";
+import { TimerDetails } from "./components/TimerDetails";
 
 export default function Home() {
   const [startTime, setStartTime] = useState<Date>();
@@ -26,7 +27,7 @@ export default function Home() {
   const startTimer = (timerCurrValue: number) => {
     setTimerEndValue(timerCurrValue);
     setStartTime(new Date());
-    setTimer(59);
+    setTimer(0);
   };
 
   const formattedTimer = [
@@ -39,19 +40,28 @@ export default function Home() {
     });
   });
 
-  const debugArray = {
-    startTime: startTime?.toLocaleTimeString(),
-    endTime: endTime?.toLocaleTimeString(),
-    timerCurrValue,
-    timerEndValue,
-  };
+  // const debugArray = {
+  //   startTime: startTime?.toLocaleTimeString(),
+  //   endTime: endTime?.toLocaleTimeString(),
+  //   timerCurrValue,
+  //   timerEndValue,
+  // };
 
   return (
     <div
-      className={`w-full h-full flex justify-center items-center flex-col ease-in-out transition transition-75 ${
+      className={`w-full h-full flex justify-center items-center flex-col ease-in-out transition transition-75 p-4 ${
         isTimeUp && timerEndValue ? "bg-black text-white" : ""
       }`}
     >
+      <div className="flex flex-col items-start justify-center">
+        <div className="text-8xl font-bold mb-4">
+          Soft Timer
+          {!(startTime && endTime) && (
+            <span className="animate-blinking-cursor">|</span>
+          )}
+        </div>
+        <TimerDetails />
+      </div>
       {startTime && endTime ? (
         <>
           <div className="text-sm">
@@ -63,11 +73,10 @@ export default function Home() {
         </>
       ) : (
         <>
-          <div className="text-8xl mb-4 font-bold">Soft Timer</div>
           <TimerForm startTimer={startTimer} />
         </>
       )}
-      {JSON.stringify(debugArray, null, 2)}
+      {/* {JSON.stringify(debugArray, null, 2)} */}
     </div>
   );
 }
