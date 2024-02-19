@@ -13,8 +13,8 @@ export const TimerDetails = () => {
         >
           Google's
         </a>
-        . The screen will changes color when the time is reached. This timer
-        might be nice when you don't want to make noise or have your hands busy.
+        . The screen changes color when the time is reached. This timer might be
+        nice when you don't want to make noise or have your hands busy.
       </div>
     </details>
   );
